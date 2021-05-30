@@ -16,7 +16,14 @@ Before we talk about the attack, let's undertsand what is Serialization? I hope 
 
 Serialization is basically converting a set of data structure or the objects into a stream of bytes to transmit it to a memory, a database, or a file. The main advantage of this technology is to save the state of an object in order to be able to recreate it whenever needed, eg. video games, etc.
 
+**Areas of Risks**
 
+Along with the advantage this technology also has its disadvantages. This vulnerability could occur when a user-supplied input is not appropriately sanitized before being passed to the unserialize() PHP function. Since PHP allows object serialization, a malacious actor could pass ad-hoc serialized strings to a vulnerable unserialize() call, resulting in an arbitrary PHP object(s) injection into the application scope.
+
+In order to successfully exploit a PHP Object Injection vulnerability the following two conditions must be met:
+
+  1. The application must have a class which implements a PHP magic method (such as __wakeup or __destruct) that can be used to carry out malicious attacks, or to start a “POP chain”.
+  2. All of the classes used during the attack must be declared when the vulnerable unserialize() is being called, otherwise object autoloading must be supported for such classes.
 
 ## Here is a secondary heading
 
