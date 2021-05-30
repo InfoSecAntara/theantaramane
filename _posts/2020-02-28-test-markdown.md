@@ -31,7 +31,7 @@ During a recent Pen Test I came across an interesting piece of PHP code that cou
 
 The vulnerable Code:
 
-    *<?php
+    /*<?php
   class HTMLFile
   {
     public $filename='help.html';
@@ -55,9 +55,12 @@ The vulnerable Code:
   } else {
     $htmlobject = new HTMLFile();
   }
-  ?>
+  ?> 
+    <?php echo $htmlobject; ?>*/
 
-  <?php echo $htmlobject; ?>*
+  In the above code, a user controlled value can be passed on to a PHP un-serialization function. The application accepts a "filename" which gets called, and the output is then fed to php unserialize module. With the above bug both application level and system level code executions is possible, I will get into that soon.
+
+
 
 
 How about a yummy crepe?
