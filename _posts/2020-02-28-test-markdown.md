@@ -25,16 +25,39 @@ In order to successfully exploit a PHP Object Injection vulnerability the follow
   1. The application must have a class which implements a PHP magic method (such as __wakeup or __destruct) that can be used to carry out malicious attacks, or to start a “POP chain”.
   2. All of the classes used during the attack must be declared when the vulnerable unserialize() is being called, otherwise object autoloading must be supported for such classes.
 
-## Here is a secondary heading
+## Attack Story
 
-Here's a useless table:
+During a recent Pen Test I came across an interesting piece of PHP code that could lead to RCE, but the exploitation was bit tricky. After spending some sleepless nights trying to break this code, I identified that both application and system level code execution was possible using the vulnerability.
 
-| Number | Next number | Previous number |
-| :------ |:--- | :--- |
-| Five | Six | Four |
-| Ten | Eleven | Nine |
-| Seven | Eight | Six |
-| Two | Three | One |
+The vulnerable Code:
+
+    *<?php
+  class HTMLFile
+  {
+    public $filename='help.html';
+    public $bla =  1;
+    public function __toString()
+    {
+        return '<iframe src=' . $this->filename ."></iframe>";
+    }
+  }
+  class IncludeFile
+  {
+    public $filename = '';
+    public function __toString()
+    {
+        include $this->filename;
+        return "<br /><br />";
+    }
+  }
+    if (isset($_GET['file'])){
+    $htmlobject = unserialize(base64_decode($_GET['file']));
+  } else {
+    $htmlobject = new HTMLFile();
+  }
+  ?>
+
+  <?php echo $htmlobject; ?>*
 
 
 How about a yummy crepe?
