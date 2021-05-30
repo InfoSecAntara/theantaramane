@@ -1,16 +1,18 @@
 ---
-layout: post
-title: Sample blog post
-subtitle: Each post also has a subtitle
-gh-repo: daattali/beautiful-jekyll
+layout: 
+title: PHPObjectInjection
+subtitle: LFI to RCE
+# gh-repo: daattali/beautiful-jekyll
 gh-badge: [star, fork, follow]
 tags: [test]
 comments: true
 ---
 
-This is a demo post to show you how to write blog posts with markdown.  I strongly encourage you to [take 5 minutes to learn how to write in markdown](https://markdowntutorial.com/) - it'll teach you how to transform regular text into bold/italics/headings/tables/etc.
+Hello bug-hunters, today we are gonna talk about PHPObjectInjection and leveraging the power of Reflection to modify the seralized objects and access any arbitrary files from the server, later we will learn how to convert it into a RCE (Remote Code Execution). let the hunt begin,
 
-**Here is some bold text**
+**What is PHPObjectInjection**
+
+Before we talk about PHPObjectInjection, let's undertsand what is Serialization? I hope you must be knowing, lets have a revison,  
 
 ## Here is a secondary heading
 
