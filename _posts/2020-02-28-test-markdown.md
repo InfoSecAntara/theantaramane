@@ -4,15 +4,19 @@ title: PHPObjectInjection
 subtitle: LFI to RCE
 # gh-repo: daattali/beautiful-jekyll
 gh-badge: [star, fork, follow]
-tags: [test]
+tags: [WebAppVulnerabilities, Pentesting]
 comments: true
 ---
 
-Hello bug-hunters, today we are gonna talk about PHPObjectInjection and leveraging the power of Reflection to modify the seralized objects and access any arbitrary files from the server, later we will learn how to convert it into a RCE (Remote Code Execution). let the hunt begin,
+Hello bug-hunters, today we are gonna talk about PHPObjectInjection and leveraging the power of Reflection to modify the serialized objects and access any arbitrary files from the server, later we will learn how to convert it into a RCE (Remote Code Execution). let the hunt begin;
 
-**What is PHPObjectInjection**
+## What is PHPObjectInjection?
 
-Before we talk about PHPObjectInjection, let's undertsand what is Serialization? I hope you must be knowing, lets have a revison,  
+Before we talk about the attack, let's undertsand what is Serialization? I hope you must be havinga an idea around it, lets have a revision,  
+
+Serialization is basically converting a set of data structure or the objects into a stream of bytes to transmit it to a memory, a database, or a file. The main advantage of this technology is to save the state of an object in order to be able to recreate it whenever needed, eg. video games, etc.
+
+
 
 ## Here is a secondary heading
 
