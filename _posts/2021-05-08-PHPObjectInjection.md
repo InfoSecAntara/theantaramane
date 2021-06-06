@@ -22,8 +22,8 @@ Along with the advantage this technology also has its disadvantages. This vulner
 
 In order to successfully exploit a PHP Object Injection vulnerability the following two conditions must be met:
 
-  1. The application must have a class which implements a PHP magic method (such as __wakeup or __destruct) that can be used to carry out malicious attacks, or to start a “POP chain”.
-  2. All of the classes used during the attack must be declared when the vulnerable unserialize() is being called, otherwise object autoloading must be supported for such classes.
+   1. The application must have a class which implements a PHP magic method (such as __wakeup or __destruct) that can be used to carry out malicious attacks, or to start a “POP chain”.
+   2. All of the classes used during the attack must be declared when the vulnerable unserialize() is being called, otherwise object autoloading must be supported for such classes.
 
 ## Attack Story
 
@@ -77,13 +77,13 @@ In our case, I found an instance where the "file" parameter was carrying a base6
 
 Deserialized form:
 
-"O:8:"HTMLFile":1:{s:8:"filename";s:9:"help.html";}"
+   "O:8:"HTMLFile":1:{s:8:"filename";s:9:"help.html";}"
 
 At the response side if you'd see, we have another code which has class named "IncludeFile" a vulnerable function "filename" and a magic function "function __toString()", let's make our own payload
 
 This is our payload; pretty easy to understand, I have just replaced the class name, make sure the string char lengths are exactly matching to that string name as follows;
 
-O:11:"IncludeFile":1:{s:8:"filename";s11:"/etc/passwd";}
+   O:11:"IncludeFile":1:{s:8:"filename";s11:"/etc/passwd";}
 
 This is cool, let's base64 encode it; and boomm!! it worked
 
@@ -95,10 +95,10 @@ Let's move on to RCE!
 
 So I had a file upload functionality, and this functionality only allows the image filesto be uploaded, how this can e tirned into a Remote Code Execution??
 
-  1. Create an Image file with PHP code using exif or any other image utility tool 
-  2. Upoad the file and locate the path
-  3. Utilize LFI include image file and make an Out of Band call to confirm the code execution
-  4. Make use of the shell uploaded and run arbitrary commands 
+   1. Create an Image file with PHP code using exif or any other image utility tool 
+   2. Upoad the file and locate the path
+   3. Utilize LFI include image file and make an Out of Band call to confirm the code execution
+   4. Make use of the shell uploaded and run arbitrary commands 
 
 We will be using exif tool with the following command:
 
