@@ -60,7 +60,12 @@ The vulnerable Code:
 
 In the above code, a user controlled value can be passed on to a PHP un-serialization function. The application accepts a "filename" which gets called, and the output is then fed to php unserialize module. With the above bug both application level and system level code executions is possible. For exploiting this vulenarability both the conditions are satisfied. 
 
+*/Serialization example:/*
 
+Serializing a 3 char string array
+
+
+*/Understanding the serialized string/*
 
 
 
