@@ -64,19 +64,32 @@ In the above code, a user controlled value can be passed on to a PHP un-serializ
 
 Serializing a 3 char string array
 
+IMG
 
 **Understanding the serialized string**
 
-
+IMG
 
 
 In our case, I found an instance where the "file" parameter was carrying a base64 encoded payload, later identified to be a serialized object as following;
+
+POC
 
 Deserialized form:
 
 "O:8:"HTMLFile":1:{s:8:"filename";s:9:"help.html";}"
 
+At the response side if you'd see, we have another code which has class named "IncludeFile" a vulnerable function "filename" and a magic function "function __toString()", let's make our own payload
 
+This is our payload; pretty easy to understand, I have just replaced the class name, make sure the string char lengths are exactly matching to that string name as follows;
+
+O:11:"IncludeFile":1:{s:8:"filename";s11:"/etc/passwd";}
+
+This is cool, let's base64 encode; and boomm!! it worked
+
+POC
+
+Using the power of reflection 
 
 
 
