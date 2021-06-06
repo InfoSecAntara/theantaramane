@@ -67,15 +67,10 @@ Serializing a 3 char string array
 
 **Understanding the serialized string**
 
-a:3{	            Array of 3 values
-i:0	              Integer, value [ index-0]
-S:3:"PHP"	        String, 3 chars long, string value “PHP”
-i:1	Integer,      value [index-1]
-S:6:"Object"	    String , 6 chars long, string value ”Object”
-i:2	Integer,      value [index-2]
-S:9:"Injection"	  String , 9 chars long, string value “Injection”
 
-In our case, there was an instace where I had a "file" parameter which was carrying a base64 encoded payload, later identified to be a serialized object as following;
+
+
+In our case, I found an instance where the "file" parameter was carrying a base64 encoded payload, later identified to be a serialized object as following;
 
 Deserialized form:
 
