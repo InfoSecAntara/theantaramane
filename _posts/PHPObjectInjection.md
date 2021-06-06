@@ -60,12 +60,27 @@ The vulnerable Code:
 
 In the above code, a user controlled value can be passed on to a PHP un-serialization function. The application accepts a "filename" which gets called, and the output is then fed to php unserialize module. With the above bug both application level and system level code executions is possible. For exploiting this vulenarability both the conditions are satisfied. 
 
-*/Serialization example:/*
+**Serialization example:**
 
 Serializing a 3 char string array
 
 
-*/Understanding the serialized string/*
+**Understanding the serialized string**
+
+a:3{	            Array of 3 values
+i:0	              Integer, value [ index-0]
+S:3:"PHP"	        String, 3 chars long, string value “PHP”
+i:1	Integer,      value [index-1]
+S:6:"Object"	    String , 6 chars long, string value ”Object”
+i:2	Integer,      value [index-2]
+S:9:"Injection"	  String , 9 chars long, string value “Injection”
+
+In our case, there was an instace where I had a "file" parameter which was carrying a base64 encoded payload, later identified to be a serialized object as following;
+
+Deserialized form:
+
+"O:8:"HTMLFile":1:{s:8:"filename";s:9:"help.html";}"
+
 
 
 
