@@ -87,7 +87,7 @@ O:11:"IncludeFile":1:{s:8:"filename";s11:"/etc/passwd";}
 
 This is cool, let's base64 encode; and boomm!! it worked
 
-![](https://github.com/InfoSecAntara/theantaramane/assets/etc_passwd.png)
+![](https://github.com/InfoSecAntara/theantaramane/assets/img/etc_passwd.jpg)
 
 Using the power of reflection we were able to modify the serialized objects and access any arbitrary files from the server!! Ins't this amazing?? 
 
