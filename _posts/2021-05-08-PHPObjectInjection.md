@@ -64,11 +64,11 @@ In the above code, a user controlled value can be passed on to a PHP un-serializ
 
 Serializing a 3 char string array
 
-![] (https://github.com/InfoSecAntara/theantaramane/assets/sample_serializled_code.png)
+![](https://github.com/InfoSecAntara/theantaramane/assets/sample_serializled_code.png)
 
 **Understanding the serialized string**
 
-![] (https://github.com/InfoSecAntara/theantaramane/assets/understanding_serialzed.png)
+![](https://github.com/InfoSecAntara/theantaramane/assets/understanding_serialzed.png)
 
 
 In our case, I found an instance where the "file" parameter was carrying a base64 encoded payload, later identified to be a serialized object as following;
