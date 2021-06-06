@@ -87,9 +87,20 @@ O:11:"IncludeFile":1:{s:8:"filename";s11:"/etc/passwd";}
 
 This is cool, let's base64 encode; and boomm!! it worked
 
-![](https://github.com/InfoSecAntara/theantaramane/assets/img/etc_passwd.png)
+![] (https://github.com/InfoSecAntara/theantaramane/assets/img/etc_passwd.png)
 
-Using the power of reflection 
+Using the power of reflection we were able to modify the serialized objects and access any arbitrary files from the server!! Ins't this amazing?? 
+
+Let's move on to RCE!
+
+So I had a file upload functionality, and this functionality only allows the image filesto be uploaded, how this can e tirned into a Remote Code Execution??
+
+  1. Create an Image file with PHP code using exif or any other image utility tool 
+  2. Upoad the file and locate the path
+  3. Utilize LFI include image file and make an Out of Band call to confirm the code execution
+
+
+
 
 
 
