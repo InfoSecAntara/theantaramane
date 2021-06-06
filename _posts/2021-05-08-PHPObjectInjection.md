@@ -87,7 +87,7 @@ O:11:"IncludeFile":1:{s:8:"filename";s11:"/etc/passwd";}
 
 This is cool, let's base64 encode; and boomm!! it worked
 
-![Crepe] (https://github.com/InfoSecAntara/theantaramane/tree/main/assets/img/etc_passwd.png)
+![](https://github.com/InfoSecAntara/theantaramane/tree/main/assets/img/etc_passwd.png)
 
 Using the power of reflection 
 
