@@ -87,9 +87,9 @@ This is our payload; pretty easy to understand, I have just replaced the class n
 
 This is cool, let's base64 encode it; and boomm!! it worked
 
-<img src="{{ 'assets/img/etc_passwd.jpg' | relative_url }}"
+<img src="{{ 'https://github.com/InfoSecAntara/theantaramane/assets/img/etc_passwd.jpg' | relative_url }}"
 
-![](https://github.com/InfoSecAntara/theantaramane/assets/img/etc_passwd.jpg)
+# ![](https://github.com/InfoSecAntara/theantaramane/assets/img/etc_passwd.jpg)
 
 Using the power of reflection we were able to modify the serialized objects and access any arbitrary files from the server!! Ins't this amazing?? 
 
