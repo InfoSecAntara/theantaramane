@@ -64,16 +64,16 @@ In the above code, a user controlled value can be passed on to a PHP un-serializ
 
 Serializing a 3 char string array
 
-IMG
+![] (https://github.com/InfoSecAntara/theantaramane/tree/main/assets/img/sample_serializled_code.png)
 
 **Understanding the serialized string**
 
-IMG
+![] (https://github.com/InfoSecAntara/theantaramane/tree/main/assets/img/understanding_serialzed.png)
 
 
 In our case, I found an instance where the "file" parameter was carrying a base64 encoded payload, later identified to be a serialized object as following;
 
-POC
+![] (https://github.com/InfoSecAntara/theantaramane/tree/main/assets/img/instance.png)
 
 Deserialized form:
 
@@ -87,7 +87,7 @@ O:11:"IncludeFile":1:{s:8:"filename";s11:"/etc/passwd";}
 
 This is cool, let's base64 encode; and boomm!! it worked
 
-POC
+![] (https://github.com/InfoSecAntara/theantaramane/tree/main/assets/img/etc_passwd.png)
 
 Using the power of reflection 
 
